@@ -1,0 +1,22 @@
+.bottom-left-pattern {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    z-index: 1;
+}
+
+.top-right-pattern {
+    position: absolute;
+    top: 3rem;
+    right: 0;
+    width: 25%;
+    z-index: 1;
+}
+
+.lines {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+}

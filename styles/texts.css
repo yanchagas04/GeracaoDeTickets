@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import './var.css';
+
+.main-title {
+    font-family: 'Inconsolata', monospace;
+    color: var(--neutral-0);
+    font-size: 30pt;
+    text-align: center;
+}
+
+.main-subtitle {
+    font-family: 'Inconsolata', monospace;
+    color: var(--neutral-500);
+    font-size: 12pt;
+    text-align: center;
+}

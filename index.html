@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="styles.css">
   <title>Frontend Mentor | Conference ticket generator</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -14,44 +14,27 @@
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
-<body>
-
-  <!-- Form starts -->
-
-  Your Journey to Coding Conf 2025 Starts Here!
-
-  Secure your spot at next year's biggest coding conference.
-
-  Upload Avatar
-  Drag and drop or click to upload
-  Upload your photo (JPG or PNG, max size: 500KB).
-
-  Full Name
-
-  Email Address
-  example@email.com
-
-  GitHub Username
-  @yourusername
-
-  Generate My Ticket
-
-  <!-- Form ends -->
-
-  <!-- Generated tickets starts -->
-
-  Congrats, <!-- Full Name -->! Your ticket is ready.
-
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
-
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
-
-  <!-- Generated tickets ends -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+<body class="background ">
+  <header>
+    <img class="logo" src="./assets/images/logo-full.svg" alt="logo">
+  </header>
+  <main class="main-container">
+    <h1 class="main-title">Sua Jornada para Coding Conf 2025 Começa Aqui!</h1>
+    <h3 class="main-subtitle">Garanta sua vaga na maior experiência de codificação do próximo ano.</h3>
+    <form action="" method="post">
+      <label for="file">Upload do seu avatar</label>
+      <input id="file" type="file" placeholder="Avatar" required accept="image/*" draggable="true" dropzone="true">
+      <label for="name">Nome Completo</label>
+      <input id="name" type="text" placeholder="Nome" required>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Email" required>
+      <label for="github">GitHub</label>
+      <input id="github" type="text" placeholder="Usuário do GitHub" required>
+      <button id="submit" type="submit">Enviar</button>
+    </form>
+  </main>
+  <img class="lines" src="./assets/images/pattern-lines.svg" alt="">
+  <img class="bottom-left-pattern" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">
+  <img class="top-right-pattern" src="./assets/images/pattern-squiggly-line-top.svg" alt="">
 </body>
 </html>

@@ -1,0 +1,61 @@
+@import './styles/patterns.css';
+@import './styles/logo.css';
+@import	'./styles/texts.css';
+@import './styles/forms.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100dvw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    background-image: url("./assets/images/background-desktop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 100dvh;
+    width: 50%;
+    padding-top: 1rem;
+    gap: 1rem;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+}
+
+/* Mobile Design */
+@media (max-width: 375px) {
+    .background {
+        background-image: url("./assets/images/background-mobile.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100dvh;
+        display: flex;
+        justify-content: center;
+    }
+}
