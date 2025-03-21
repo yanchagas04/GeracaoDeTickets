@@ -8,6 +8,7 @@ form {
     font-family: 'Inconsolata', monospace;
     width: 70%;
     padding: 1rem;
+    z-index: 2;
 }
 
 form label {
@@ -17,7 +18,89 @@ form label {
     font-size: 11pt;   
 }
 
-#file {
+.fields-container {
     display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
+.container-file {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    gap: 0.5rem;
+    font-size: 9pt;
+    cursor: pointer;
+    color: var(--neutral-300);
+    border: 1px dashed var(--neutral-500);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+#file {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+    inset: 0;
+}
+
+.upload-button {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+    border-style: solid;
+    border-color: var(--neutral-700);
+    border-radius: 0.5rem;
+    border-width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.file-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 8pt;
+    color: var(--neutral-300);
+}
+
+#name, #email, #github {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--neutral-500);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-size: 8pt;
+}
+
+#name::placeholder, #email::placeholder, #github::placeholder {
+    color: var(--neutral-300);
+}
+
+#submit {
+    background-color: var(--organge-500);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    font-size: 9pt;
+    font-weight: 900;
+    border: none;
+    color: var(--neutral-900);
+    cursor: pointer;
+    font-family: 'Inconsolata', monospace;
+    transition: all 0.3s ease-in-out;
+}
+
+#submit:hover {
+    background-color: var(--organge-700);
+}

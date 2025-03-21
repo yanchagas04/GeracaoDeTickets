@@ -22,15 +22,30 @@
     <h1 class="main-title">Sua Jornada para Coding Conf 2025 Começa Aqui!</h1>
     <h3 class="main-subtitle">Garanta sua vaga na maior experiência de codificação do próximo ano.</h3>
     <form action="" method="post">
-      <label for="file">Upload do seu avatar</label>
-      <input id="file" type="file" placeholder="Avatar" required accept="image/*" draggable="true" dropzone="true">
-      <label for="name">Nome Completo</label>
-      <input id="name" type="text" placeholder="Nome" required>
-      <label for="email">Email</label>
-      <input id="email" type="email" placeholder="Email" required>
-      <label for="github">GitHub</label>
-      <input id="github" type="text" placeholder="Usuário do GitHub" required>
-      <button id="submit" type="submit">Enviar</button>
+      <div class="fields-container">
+        <label for="file">Upload do seu avatar</label>
+        <span class="container-file">
+          <span class="upload-button">
+            <img class="upload-icon" src="./assets/images/icon-upload.svg" alt="avatar">
+          </span>
+          <span>Clique ou arraste para enviar</span>
+          <input id="file" type="file" placeholder="Avatar" accept="image/png, image/jpeg" required draggable="true" dropzone="true">
+        </span>
+        <span class="file-hint"><img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).</span>
+      </div>
+      <div class="fields-container">
+        <label for="name">Nome Completo</label>
+        <input id="name" type="text" required>
+      </div>
+      <div class="fields-container">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="example@email.com" required>
+      </div>
+      <div class="fields-container">
+        <label for="github">Usuário GitHub</label>
+        <input id="github" type="text" placeholder="@username" required>
+      </div>
+      <button id="submit" type="submit">Gerar meu ingresso</button>
     </form>
   </main>
   <img class="lines" src="./assets/images/pattern-lines.svg" alt="">

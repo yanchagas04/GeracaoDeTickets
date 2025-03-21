@@ -1,5 +1,5 @@
 .bottom-left-pattern {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 50%;
@@ -7,7 +7,7 @@
 }
 
 .top-right-pattern {
-    position: absolute;
+    position: fixed;
     top: 3rem;
     right: 0;
     width: 25%;
@@ -15,7 +15,7 @@
 }
 
 .lines {
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 1;
     top: 0;
