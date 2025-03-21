@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo-mark.svg">
   <link rel="stylesheet" href="styles.css">
-  <title>Frontend Mentor | Conference ticket generator</title>
+  <title>Gerador de Ticket</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -29,7 +29,7 @@
             <img class="upload-icon" src="./assets/images/icon-upload.svg" alt="avatar">
           </span>
           <span>Clique ou arraste para enviar</span>
-          <input id="file" type="file" placeholder="Avatar" accept="image/png, image/jpeg" required draggable="true" dropzone="true">
+          <input onchange="isFileValid()" id="file" type="file" placeholder="Avatar" accept="image/png, image/jpeg" required draggable="true" dropzone="true">
         </span>
         <span class="file-hint"><img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).</span>
       </div>
@@ -51,5 +51,6 @@
   <img class="lines" src="./assets/images/pattern-lines.svg" alt="">
   <img class="bottom-left-pattern" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">
   <img class="top-right-pattern" src="./assets/images/pattern-squiggly-line-top.svg" alt="">
+  <script src="./script.js"></script>
 </body>
 </html>

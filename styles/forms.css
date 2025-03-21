@@ -7,6 +7,7 @@ form {
     color: var(--neutral-0);
     font-family: 'Inconsolata', monospace;
     width: 70%;
+    min-width: 24rem;
     padding: 1rem;
     z-index: 2;
 }
@@ -92,7 +93,7 @@ form label {
     background-color: var(--organge-500);
     border-radius: 0.5rem;
     padding: 0.8rem;
-    font-size: 9pt;
+    font-size: 10pt;
     font-weight: 900;
     border: none;
     color: var(--neutral-900);
@@ -103,4 +104,37 @@ form label {
 
 #submit:hover {
     background-color: var(--organge-700);
+    scale: 1.01;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    form {
+        width: 100%;
+    }
+
+    .upload-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .container-file {
+        padding: 1.5rem;
+        gap: 1rem;
+        font-size: 14pt;
+    }
+
+    form label {
+        font-size: 13pt;   
+    }
+
+    #name, #email, #github {
+        padding: 1.2rem;
+        font-size: 10pt;
+    }
+
+    #submit {
+        padding: 1.2rem;
+        font-size: 12pt;
+    }
 }

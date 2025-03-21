@@ -14,3 +14,9 @@
     font-size: 12pt;
     text-align: center;
 }
+
+@media (max-width: 500px) {
+    .main-title {
+        font-size: 21pt;
+    }
+}

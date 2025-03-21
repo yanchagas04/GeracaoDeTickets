@@ -37,6 +37,7 @@ body {
     gap: 1rem;
 }
 
+
 header {
     display: flex;
     flex-direction: row;
@@ -47,3 +48,18 @@ header {
     padding: 2rem;
 }
 
+/* Mobile */
+@media (max-width: 500px) {
+
+    body {
+        height: fit-content;
+    }
+
+    .background {
+        background-image: url("./assets/images/background-mobile.png");
+    }
+
+    .main-container {
+        width: 85%;
+    }
+}

@@ -4,6 +4,7 @@
     left: 0;
     width: 50%;
     z-index: 1;
+    scale: 2;
 }
 
 .top-right-pattern {
@@ -19,4 +20,16 @@
     width: 100%;
     z-index: 1;
     top: 0;
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .bottom-left-pattern {
+        width: 80%;
+        left: 0;
+    }
+
+    .lines {
+        scale: 2;
+    }
 }
