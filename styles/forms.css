@@ -138,3 +138,21 @@ form label {
         font-size: 12pt;
     }
 }
+
+@media (min-width: 500px) and (max-width: 1024px) {
+    body, .background {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .main-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        width: 80%;
+    }
+}

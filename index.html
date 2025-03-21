@@ -2,8 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo-mark.svg">
   <link rel="stylesheet" href="styles.css">
   <title>Gerador de Ticket</title>
@@ -21,7 +20,7 @@
   <main class="main-container">
     <h1 class="main-title">Sua Jornada para Coding Conf 2025 Começa Aqui!</h1>
     <h3 class="main-subtitle">Garanta sua vaga na maior experiência de codificação do próximo ano.</h3>
-    <form action="" method="post">
+    <form action="ticket/index.html" enctype="multipart/form-data">
       <div class="fields-container">
         <label for="file">Upload do seu avatar</label>
         <span class="container-file">
@@ -35,7 +34,7 @@
       </div>
       <div class="fields-container">
         <label for="name">Nome Completo</label>
-        <input id="name" type="text" required>
+        <input id="name" tsype="text" required>
       </div>
       <div class="fields-container">
         <label for="email">Email</label>
@@ -45,7 +44,7 @@
         <label for="github">Usuário GitHub</label>
         <input id="github" type="text" placeholder="@username" required>
       </div>
-      <button id="submit" type="submit">Gerar meu ingresso</button>
+      <button id="submit" onclick="storeData()" type="submit">Gerar meu ingresso</button>
     </form>
   </main>
   <img class="lines" src="./assets/images/pattern-lines.svg" alt="">
