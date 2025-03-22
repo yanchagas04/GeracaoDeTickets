@@ -48,6 +48,11 @@ header {
     padding: 2rem;
 }
 
+.email {
+    color: var(--organge-500);
+    font-weight: 900;
+}
+
 /* Mobile */
 @media (max-width: 500px) {
 

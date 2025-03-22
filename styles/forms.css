@@ -107,6 +107,11 @@ form label {
     scale: 1.01;
 }
 
+input {
+    font-family: 'Inconsolata', monospace;
+    color: var(--neutral-0);
+}
+
 /* Mobile */
 @media (max-width: 500px) {
     form {
