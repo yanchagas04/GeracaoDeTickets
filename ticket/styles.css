@@ -1,8 +1,8 @@
 @import '../styles/patterns.css';
 @import '../styles/logo.css';
 @import	'../styles/texts.css';
-@import '../styles/forms.css';
 @import '../styles/var.css';
+@import '../styles/ticket.css';
 
 * {
     margin: 0;
@@ -85,16 +85,17 @@ header {
 /* Mobile */
 @media (max-width: 500px) {
 
-    body {
-        height: fit-content;
-    }
-
     .background {
         background-image: url("../assets/images/background-mobile.png");
     }
 
     .main-container {
-        width: 85%;
+        width: 90%;
+    }
+
+    .texts h3 {
+        text-align: center;
+        width: 100%;
     }
 }
 
@@ -104,5 +105,8 @@ header {
         width: 70%;
     }
 
-    
+    .texts h3 {
+        text-align: center;
+        width: 100%;
+    }    
 }
