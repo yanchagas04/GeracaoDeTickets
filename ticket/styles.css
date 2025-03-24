@@ -74,9 +74,12 @@ header {
 .ticket {
     aspect-ratio: 900/430;
     width: 100%;
+    height: 100%;
     padding: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url("../assets/images/pattern-ticket.svg");
@@ -85,7 +88,7 @@ header {
 .slot-1 {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     height: 50%;
     flex-direction: column;
     justify-content: start;
@@ -94,7 +97,7 @@ header {
 }
 
 .data {
-    width: 80%;
+    width: 100%;
     text-align: center;
     color: var(--neutral-500);
     font-size: 0.6rem;
@@ -105,7 +108,7 @@ header {
 .slot-2 {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     height: 50%;
     justify-content: start;
     align-items: end;
@@ -115,7 +118,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: fit-content;
+    height: 3rem;
     flex-direction: column;
     justify-content: center;
     align-items: start;
@@ -130,6 +133,9 @@ header {
     justify-content: start;
     align-items: center;
     gap: 0.3rem;
+    color: var(--neutral-300);
+    font-size: 8pt;
+    font-family: 'Inconsolata';
 }
 
 .avatar-ticket {
@@ -141,14 +147,42 @@ header {
 
 .name-ticket {
     color: var(--neutral-0);
-    font-size: 14pt;
+    font-size: 12pt;
     font-family: 'Inconsolata';
 }
 
-.github-ticket {
+.group-1 {
+    display: flex;
+    width: 85%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: auto;
+}
+
+.group-2 {
+    display: flex;
+    width: 15%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#ticket-number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
     color: var(--neutral-300);
-    font-size: 10pt;
+    font-size: 1.5rem;
+    font-weight: 900;
     font-family: 'Inconsolata';
+    text-align: center;
+    rotate: -90deg;
 }
 
 /* Mobile */
@@ -178,12 +212,30 @@ header {
     .ticket-container {
         width: 100%;
     }
+    
+    .name-ticket {
+        font-size: 12pt;
+    }
+
+    .github-ticket {
+        font-size: 8pt;
+    }
+
+    #ticket-number {
+        align-self: center;
+        font-size: 14pt;
+    }
 }
 
 /* Tablet */
 @media (min-width: 501px) and (max-width: 824px) {
     .main-container {
         width: 90%;
+    }
+
+    .avatar-ticket {
+        width: 4rem;
+        height: 4rem;
     }
 
     .ticket-container {
@@ -194,4 +246,17 @@ header {
         text-align: center;
         width: 100%;
     }    
+
+    .name-ticket {
+        font-size: 16pt;
+    }
+
+    .github-ticket {
+        font-size: 14pt;
+    }
+
+    .slot-2-1 {
+        height: 4rem;
+    }
+
 }
