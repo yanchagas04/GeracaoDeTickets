@@ -1,0 +1,33 @@
+.ticket-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 4rem;
+    width: 100%;
+    aspect-ratio: 2;
+}
+
+.ticket {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-image: url("../assets/images/pattern-ticket.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 2;
+    width: 100%;
+    padding: 4rem 0rem;
+    color: var(--neutral-0);
+    font-family: 'Inconsolata', monospace;
+    font-size: 11pt;
+}
+
+@media (max-width: 500px) {
+    .ticket-container {
+        padding: 0rem;
+    }
+}
