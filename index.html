@@ -19,10 +19,10 @@
       <div class="fields-container">
         <label for="file">Upload do seu avatar</label>
         <span class="container-file">
-          <span class="upload-button">
-            <img class="upload-icon" src="./assets/images/icon-upload.svg" alt="avatar">
+          <span id="upload-button" class="upload-button">
+            <img id="upload-icon" class="upload-icon" src="./assets/images/icon-upload.svg" alt="avatar">
           </span>
-          <span>Clique ou arraste para enviar</span>
+          <span id="under-icon">Clique ou arraste para enviar</span>
           <input onchange="isFileValid()" id="file" type="file" placeholder="Avatar" accept="image/png, image/jpeg" required draggable="true" dropzone="true">
         </span>
         <span class="file-hint"><img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).</span>

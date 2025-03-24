@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
-@import './styles/var.css';
+@import '../styles/var.css';
 
 .main-title {
     font-family: 'Inconsolata', monospace;
@@ -23,8 +23,53 @@ h1 {
     width: 100%;
 }
 
+.texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.texts h3 {
+    text-align: center;
+    width: 100%;
+    font-family: 'Inconsolata', monospace;
+    color: var(--neutral-300);
+    font-size: 12pt;
+    font-weight: 400;
+}
+
+.h1s {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile */
 @media (max-width: 500px) {
     .main-title {
-        font-size: 21pt;
+        font-size: 25pt;
+    }
+
+    .texts {
+        width: 100%;
+    }
+
+    .texts h3 {
+        width: 100%;
+        font-size: 14pt;
+    }
+
+    .main-subtitle {
+        width: 100%;
+    }
+}
+
+/* Tablet */
+@media (min-width: 500px) and (max-width: 1024px) {
+    .texts h3 {
+        width: 60%;
     }
 }

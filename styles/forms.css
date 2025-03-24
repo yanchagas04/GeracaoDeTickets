@@ -112,6 +112,31 @@ input {
     color: var(--neutral-0);
 }
 
+.change-input-button {
+    border-radius: 0.3rem;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--neutral-300);
+    padding: 0.5rem;
+    font-size: 8pt;
+    cursor: pointer;
+    font-family: 'Inconsolata', monospace;
+    transition: all 0.1s ease-in-out;
+}
+
+.change-input-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    scale: 1.05;
+}
+
+#under-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: row;
+}
+
 /* Mobile */
 @media (max-width: 500px) {
     form {
