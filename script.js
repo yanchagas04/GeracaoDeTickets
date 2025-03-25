@@ -1,13 +1,19 @@
-localStorage.clear();
-let name_error = false;
-let email_error = false;
-let github_error = false;
+let name_error;
+let email_error;
+let github_error;
 const MAX_FILE_SIZE = 500000;
 
-document.getElementById('file').value = '';
-document.getElementById('name').value = '';
-document.getElementById('email').value = '';
-document.getElementById('github').value = '';
+// Limpa os dados assim que carregar/voltar a página
+window.addEventListener('pageshow', function(event) {
+    localStorage.clear();
+    name_error = false;
+    email_error = false;    
+    github_error = false;
+    document.getElementById('file').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('github').value = '';
+});
 
 function previewInput(src) {
     const fileInput = document.getElementById('file');
@@ -116,56 +122,21 @@ document.getElementById('file').addEventListener('change', function(event) {
   function submit() {
 
     let error = false;
-    if (document.getElementById('file').files.length === 0 ) {
-        let file_hint = document.getElementById('file-hint');
-        file_hint.style.color = 'red';
-        file_hint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, envie uma imagem.';
-        error = true;
-    } else {
-        let file_hint = document.getElementById('file-hint');
-        file_hint.style.color = 'hsl(252, 6%, 83%)';
-        file_hint.innerHTML = '<img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).';
-    }
+    error = verifyFile(error);
 
-    if (document.getElementById('name').value === '' && name_error === false) {
-        const nameHint = document.createElement('span');
-        nameHint.classList.add('error');
-        nameHint.style.color = 'red';
-        nameHint.classList.add('file-hint');
-        nameHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu nome completo.';
-        document.getElementById('name-container').appendChild(nameHint);
-        name_error = true;
-        error = true;
-    } else if (document.getElementById('name').value !== '' && name_error === true) {
-        document.getElementById('name-container').removeChild(document.getElementById('name-container').lastChild);
-        name_error = false;
-        error = false;
-    }
+    error = verifyName(error);
 
-    if (document.getElementById('email').value === '' && email_error === false) {
-        const emailHint = document.createElement('span');
-        emailHint.classList.add('error');
-        emailHint.style.color = 'red';
-        emailHint.classList.add('file-hint');
-        emailHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu email.';
-        document.getElementById('email-container').appendChild(emailHint);
-        email_error = true;
-        error = true;
-    } else if (!document.getElementById('email').value.includes('@') && !document.getElementById('email').value.includes('.') && document.getElementById('email').lastChild.classList.contains('error') === false) {
-        const emailHint = document.createElement('span');
-        emailHint.classList.add('error');
-        emailHint.style.color = 'red';
-        emailHint.classList.add('file-hint');
-        emailHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira um email válido.';
-        document.getElementById('email-container').appendChild(emailHint);
-        email_error = true;
-        error = true;
-    } else if (document.getElementById('email').value !== '' && email_error === true) {
-        document.getElementById('email-container').removeChild(document.getElementById('email-container').lastChild);
-        email_error = false;
-        error = false;
-    }
+    error = verifyEmail(error);
     
+    error = verifyGithub(error);
+    
+    if (!error) {
+        storeData();
+        window.location.href = './ticket/index.html';
+    }
+  }
+
+function verifyGithub(error) {
     if (document.getElementById('github').value === '' && github_error === false) {
         const githubHint = document.createElement('span');
         githubHint.classList.add('error');
@@ -189,10 +160,64 @@ document.getElementById('file').addEventListener('change', function(event) {
         github_error = false;
         error = false;
     }
+    return error;
+}
 
-    
-    if (!error) {
-        storeData();
-        window.location.href = './ticket/index.html';
+function verifyEmail(error) {
+    if (document.getElementById('email').value === '' && email_error === false) {
+        const emailHint = document.createElement('span');
+        emailHint.classList.add('error');
+        emailHint.style.color = 'red';
+        emailHint.classList.add('file-hint');
+        emailHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu email.';
+        document.getElementById('email-container').appendChild(emailHint);
+        email_error = true;
+        error = true;
+    } else if (!document.getElementById('email').value.includes('@') && !document.getElementById('email').value.includes('.') && document.getElementById('email').lastChild.classList.contains('error') === false) {
+        const emailHint = document.createElement('span');
+        emailHint.classList.add('error');
+        emailHint.style.color = 'red';
+        emailHint.classList.add('file-hint');
+        emailHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira um email válido.';
+        document.getElementById('email-container').appendChild(emailHint);
+        email_error = true;
+        error = true;
+    } else if (document.getElementById('email').value !== '' && email_error === true) {
+        document.getElementById('email-container').removeChild(document.getElementById('email-container').lastChild);
+        email_error = false;
+        error = false;
     }
-  }
+    return error;
+}
+
+function verifyName(error) {
+    if (document.getElementById('name').value === '' && name_error === false) {
+        const nameHint = document.createElement('span');
+        nameHint.classList.add('error');
+        nameHint.style.color = 'red';
+        nameHint.classList.add('file-hint');
+        nameHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu nome completo.';
+        document.getElementById('name-container').appendChild(nameHint);
+        name_error = true;
+        error = true;
+    } else if (document.getElementById('name').value !== '' && name_error === true) {
+        document.getElementById('name-container').removeChild(document.getElementById('name-container').lastChild);
+        name_error = false;
+        error = false;
+    }
+    return error;
+}
+
+function verifyFile(error) {
+    if (document.getElementById('file').files.length === 0) {
+        let file_hint = document.getElementById('file-hint');
+        file_hint.style.color = 'red';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, envie uma imagem.';
+        error = true;
+    } else {
+        let file_hint = document.getElementById('file-hint');
+        file_hint.style.color = 'hsl(252, 6%, 83%)';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).';
+    }
+    return error;
+}
