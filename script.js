@@ -1,4 +1,13 @@
+localStorage.clear();
+let name_error = false;
+let email_error = false;
+let github_error = false;
 const MAX_FILE_SIZE = 500000;
+
+document.getElementById('file').value = '';
+document.getElementById('name').value = '';
+document.getElementById('email').value = '';
+document.getElementById('github').value = '';
 
 function previewInput(src) {
     const fileInput = document.getElementById('file');
@@ -45,14 +54,20 @@ function isFileValid() {
     const allowedExtensions = ['jpg', 'jpeg', 'png'];
     const fileExtension = fileName.split('.').pop().toLowerCase();
     const fileSize = fileInput.files[0].size;
-    
+    let file_hint = document.getElementById('file-hint');
+
+
     if (!allowedExtensions.includes(fileExtension)) {
-        alert('Por favor, envie uma imagem no formato JPG, JPEG ou PNG.');
+        file_hint.style.color = 'red';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Formato de arquivo inválido. Por favor, envie uma imagem no formato JPG, JPEG ou PNG.';
         fileInput.value = '';
     } else if (fileSize > MAX_FILE_SIZE) {
-        alert('Por favor, envie uma imagem com tamanho menor ou igual a 500KB.');
+        file_hint.style.color = 'red';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Arquivo muito grande. Por favor, envie uma imagem com tamanho menor que 500KB.';
         fileInput.value = '';
     } else {
+        file_hint.style.color = 'hsl(252, 6%, 83%)';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).';
         let reader = new FileReader();
 
         reader.onload = () => {
@@ -69,7 +84,7 @@ function storeData() {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const github = document.getElementById('github').value;
-    const file = document.getElementById('file').files[0];
+    const fileInput = document.getElementById('file');
     localStorage.setItem('name', name);
     localStorage.setItem('email', email);
     localStorage.setItem('github', github);
@@ -97,3 +112,87 @@ document.getElementById('file').addEventListener('change', function(event) {
       reader.readAsDataURL(file);
     }
   });
+
+  function submit() {
+
+    let error = false;
+    if (document.getElementById('file').files.length === 0 ) {
+        let file_hint = document.getElementById('file-hint');
+        file_hint.style.color = 'red';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, envie uma imagem.';
+        error = true;
+    } else {
+        let file_hint = document.getElementById('file-hint');
+        file_hint.style.color = 'hsl(252, 6%, 83%)';
+        file_hint.innerHTML = '<img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).';
+    }
+
+    if (document.getElementById('name').value === '' && name_error === false) {
+        const nameHint = document.createElement('span');
+        nameHint.classList.add('error');
+        nameHint.style.color = 'red';
+        nameHint.classList.add('file-hint');
+        nameHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu nome completo.';
+        document.getElementById('name-container').appendChild(nameHint);
+        name_error = true;
+        error = true;
+    } else if (document.getElementById('name').value !== '' && name_error === true) {
+        document.getElementById('name-container').removeChild(document.getElementById('name-container').lastChild);
+        name_error = false;
+        error = false;
+    }
+
+    if (document.getElementById('email').value === '' && email_error === false) {
+        const emailHint = document.createElement('span');
+        emailHint.classList.add('error');
+        emailHint.style.color = 'red';
+        emailHint.classList.add('file-hint');
+        emailHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu email.';
+        document.getElementById('email-container').appendChild(emailHint);
+        email_error = true;
+        error = true;
+    } else if (!document.getElementById('email').value.includes('@') && !document.getElementById('email').value.includes('.') && document.getElementById('email').lastChild.classList.contains('error') === false) {
+        const emailHint = document.createElement('span');
+        emailHint.classList.add('error');
+        emailHint.style.color = 'red';
+        emailHint.classList.add('file-hint');
+        emailHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira um email válido.';
+        document.getElementById('email-container').appendChild(emailHint);
+        email_error = true;
+        error = true;
+    } else if (document.getElementById('email').value !== '' && email_error === true) {
+        document.getElementById('email-container').removeChild(document.getElementById('email-container').lastChild);
+        email_error = false;
+        error = false;
+    }
+    
+    if (document.getElementById('github').value === '' && github_error === false) {
+        const githubHint = document.createElement('span');
+        githubHint.classList.add('error');
+        githubHint.style.color = 'red';
+        githubHint.classList.add('file-hint');
+        githubHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira seu usuário GitHub.';
+        document.getElementById('github-container').appendChild(githubHint);
+        github_error = true;
+        error = true;
+    } else if (!document.getElementById('github').value.startsWith('@') && github_error === false) {
+        const githubHint = document.createElement('span');
+        githubHint.classList.add('error');
+        githubHint.style.color = 'red';
+        githubHint.classList.add('file-hint');
+        githubHint.innerHTML = '<img src="./assets/images/icon-info-red.svg" alt="">Por favor, insira um usuário válido.';
+        document.getElementById('github-container').appendChild(githubHint);
+        github_error = true;
+        error = true;
+    } else if (document.getElementById('github').value.startsWith('@') && document.getElementById('github').value !== '' && github_error === true) {
+        document.getElementById('github-container').removeChild(document.getElementById('github-container').lastChild);
+        github_error = false;
+        error = false;
+    }
+
+    
+    if (!error) {
+        storeData();
+        window.location.href = './ticket/index.html';
+    }
+  }

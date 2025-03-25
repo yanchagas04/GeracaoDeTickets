@@ -15,7 +15,7 @@
   <main class="main-container">
     <h1 class="main-title">Sua Jornada para Coding Conf 2025 Começa Aqui!</h1>
     <h3 class="main-subtitle">Garanta sua vaga na maior experiência de codificação do próximo ano.</h3>
-    <form action="ticket/index.html" enctype="multipart/form-data">
+    <div class="form">
       <div class="fields-container">
         <label for="file">Upload do seu avatar</label>
         <span class="container-file">
@@ -23,24 +23,24 @@
             <img id="upload-icon" class="upload-icon" src="./assets/images/icon-upload.svg" alt="avatar">
           </span>
           <span id="under-icon">Clique ou arraste para enviar</span>
-          <input onchange="isFileValid()" id="file" type="file" placeholder="Avatar" accept="image/png, image/jpeg" required draggable="true" dropzone="true">
+          <input onchange="isFileValid()" id="file" type="file" placeholder="Avatar" accept="image/png, image/jpeg" draggable="true" dropzone="true">
         </span>
-        <span class="file-hint"><img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).</span>
+        <span id="file-hint" class="file-hint"><img src="./assets/images/icon-info.svg" alt="">Envie sua foto (JPG, PNG, max: 500KB).</span>
       </div>
-      <div class="fields-container">
+      <div id="name-container" class="fields-container">
         <label for="name">Nome Completo</label>
-        <input id="name" tsype="text" required>
+        <input id="name" tsype="text">
       </div>
-      <div class="fields-container">
+      <div id="email-container" class="fields-container">
         <label for="email">Email</label>
-        <input id="email" type="email" placeholder="example@email.com" required>
+        <input id="email" type="email" placeholder="example@email.com">
       </div>
-      <div class="fields-container">
+      <div id="github-container" class="fields-container">
         <label for="github">Usuário GitHub</label>
-        <input id="github" type="text" placeholder="@username" required>
+        <input id="github" type="text" placeholder="@username">
       </div>
-      <button id="submit" onclick="storeData()" type="submit">Gerar meu ingresso</button>
-    </form>
+      <button id="submit" onclick="submit()">Gerar meu ingresso</button>
+    </div>
   </main>
   <img class="lines" src="./assets/images/pattern-lines.svg" alt="">
   <img class="bottom-left-pattern" src="./assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="">

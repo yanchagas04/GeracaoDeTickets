@@ -56,22 +56,41 @@ header {
 /* Mobile */
 @media (max-width: 500px) {
 
-    body {
-        height: fit-content;
-    }
-
     .background {
         background-image: url("./assets/images/background-mobile.png");
     }
 
     .main-container {
-        width: 85%;
+        width: 90%;
     }
 }
 
 /* Tablet */
 @media (min-width: 501px) and (max-width: 1024px) {
+
+    body {
+        background-color: blueviolet;
+        min-height: 100dvh;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+
+    .background {
+        background-image: url("./assets/images/background-tablet.png");
+        background-color: blueviolet;
+        min-height: 100dvh;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+
     .main-container {
+        height: fit-content;
         width: 70%;
     }
 
